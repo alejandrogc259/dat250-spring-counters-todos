@@ -39,6 +39,7 @@ public class TodoController {
     for(int i = 0; i < list.size(); i++) {
       Todo t = list.get(i);
       if(t.getId() == id){
+        todo.setId((long) id);
         list.set(i,todo);
         return todo;
       }
@@ -52,7 +53,7 @@ public class TodoController {
       Todo t = list.get(i);
       if(t.getId() == id){
         list.remove(t);
-        return "Deleted";
+        return list;
       }
     }
     return "\"message\":\"" + String.format(TODO_WITH_THE_ID_X_NOT_FOUND, id);
